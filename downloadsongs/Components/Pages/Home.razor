@@ -1,0 +1,169 @@
+﻿@page "/"
+@inject HttpClient Http
+@inject IJSRuntime JS
+
+
+<div class="download-container">
+    <h2>🎧 YouTube to MP3</h2>
+
+    <input @bind="youtubeUrl" placeholder="Paste YouTube URL" class="input-box" />
+    <button @onclick="DownloadMP3" class="download-btn">Download MP3</button>
+
+    @if (!string.IsNullOrEmpty(status))
+    {
+        <p class="status-text">@status</p>
+    }
+</div>
+
+<style>
+    body {
+        background-color: #121212;
+        color: #eee;
+        font-family: 'Segoe UI', sans-serif;
+        margin: 0;
+    }
+
+    .download-container {
+        width: 90%;
+        max-width: 480px;
+        margin: 5vh auto;
+        background: #1e1e1e;
+        padding: 1.5rem;
+        border-radius: 16px;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+        text-align: center;
+        animation: fadeIn 0.5s ease;
+    }
+
+    h2 {
+        margin-bottom: 1rem;
+        color: #ffcc00;
+        font-size: 1.5rem;
+    }
+
+    .input-box {
+        width: 100%;
+        padding: 0.8rem;
+        margin-bottom: 1rem;
+        border: none;
+        border-radius: 8px;
+        background-color: #2a2a2a;
+        color: white;
+        font-size: 1rem;
+        box-sizing: border-box;
+    }
+
+        .input-box:focus {
+            outline: 2px solid #ffcc00;
+        }
+
+    .download-btn {
+        width: 100%;
+        background-color: #ffcc00;
+        color: #121212;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        padding: 0.8rem;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .download-btn:hover {
+            background-color: #ffd700;
+        }
+
+    .status-text {
+        margin-top: 1rem;
+        font-size: 0.95rem;
+        color: #ccc;
+        word-wrap: break-word;
+    }
+
+    keyframes fadeIn {
+        from
+
+    {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    }
+
+    media (max-width: 400px) {
+        h2
+
+    {
+        font-size: 1.3rem;
+    }
+
+    .input-box,
+    .download-btn {
+        font-size: 0.95rem;
+        padding: 0.7rem;
+    }
+
+    .status-text {
+        font-size: 0.85rem;
+    }
+
+    }
+</style>
+@code {
+    private string youtubeUrl = "";
+    private string status = "";
+
+    private async Task DownloadMP3()
+    {
+        status = "Downloading...";
+        try
+        {
+            var response = await Http.PostAsJsonAsync(APIH.ConstData.url, youtubeUrl);
+            if (response.IsSuccessStatusCode)
+            {
+                var result = await response.Content.ReadFromJsonAsync<DownloadResult>();
+                if (result != null)
+                {
+                    await JS.InvokeVoidAsync("triggerDownload", result.Base64, result.FileName);
+                    status = $"✅ Downloaded: {result.FileName}";
+                }
+                else
+                {
+                    status = "❌ Empty result from server.";
+                }
+            }
+            else
+            {
+                status = $"❌ Server error: {response.StatusCode}";
+            }
+        }
+        catch (Exception ex)
+        {
+            status = "❌ Exception: " + ex.Message;
+        }
+    }
+
+    public class DownloadResult
+    {
+        public string Base64 { get; set; } = "";
+        public string FileName { get; set; } = "";
+    }
+}
+<script>
+    window.triggerDownload = function (base64Data, fileName) {
+        const link = document.createElement('a');
+        link.href = 'data:audio/mpeg;base64,' + base64Data;
+        link.download = fileName;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
+</script>
+
+

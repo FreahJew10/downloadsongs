@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Downloadsongs", "downloadsongs\Downloadsongs.csproj", "{267A097F-45BB-44EF-9C37-D2A51F47DBBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yt", "Yt\Yt.csproj", "{C48ADF54-CF39-4ED0-BDAB-F447E0CB6C16}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{267A097F-45BB-44EF-9C37-D2A51F47DBBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{267A097F-45BB-44EF-9C37-D2A51F47DBBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{267A097F-45BB-44EF-9C37-D2A51F47DBBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{267A097F-45BB-44EF-9C37-D2A51F47DBBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C48ADF54-CF39-4ED0-BDAB-F447E0CB6C16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C48ADF54-CF39-4ED0-BDAB-F447E0CB6C16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C48ADF54-CF39-4ED0-BDAB-F447E0CB6C16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C48ADF54-CF39-4ED0-BDAB-F447E0CB6C16}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

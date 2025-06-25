@@ -1,0 +1,12 @@
+[youtube] Extracting URL: https://youtu.be/rqDRMquMb8g?si=tBT34am5WvXNT6UX
+[youtube] rqDRMquMb8g: Downloading webpage
+[youtube] rqDRMquMb8g: Downloading tv client config
+[youtube] rqDRMquMb8g: Downloading tv player API JSON
+[youtube] rqDRMquMb8g: Downloading ios player API JSON
+[youtube] rqDRMquMb8g: Downloading m3u8 information
+[info] rqDRMquMb8g: Downloading 1 format(s): 251
+[download] Destination: Downloads\178c781ee9f64efdb5405e7ced921f83.webm
+[download]   0.0% of    2.55MiB at  999.12KiB/s ETA 00:02[download]   0.1% of    2.55MiB at    1.46MiB/s ETA 00:01[download]   0.3% of    2.55MiB at    3.41MiB/s ETA 00:00[download]   0.6% of    2.55MiB at    7.32MiB/s ETA 00:00[download]   1.2% of    2.55MiB at    6.05MiB/s ETA 00:00[download]   2.4% of    2.55MiB at    6.15MiB/s ETA 00:00[download]   4.9% of    2.55MiB at    7.75MiB/s ETA 00:00[download]   9.8% of    2.55MiB at   10.83MiB/s ETA 00:00[download]  19.5% of    2.55MiB at   15.59MiB/s ETA 00:00[download]  39.1% of    2.55MiB at   24.37MiB/s ETA 00:00[download]  78.3% of    2.55MiB at   38.44MiB/s ETA 00:00[download] 100.0% of    2.55MiB at   45.61MiB/s ETA 00:00[download] 100% of    2.55MiB in 00:00:00 at 29.24MiB/s  
+
+
+ERROR: Postprocessing: ffprobe and ffmpeg not found. Please install or provide the path using --ffmpeg-location
